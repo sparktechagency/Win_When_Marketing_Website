@@ -265,7 +265,7 @@ export const FeaturesSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="features" style={{ padding: "100px 24px" }}>
+    <section id="features" className="section-pad" style={{ padding: "100px 24px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 64 }}>
           <p style={{ color: "var(--color-accent-light)", fontWeight: 600, fontSize: 13, textTransform: "uppercase", letterSpacing: 3, marginBottom: 12 }}>Features</p>
@@ -277,7 +277,7 @@ export const FeaturesSection: React.FC = () => {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
+        <div className="features-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
           {FEATURES.map((f, i) => {
             const isActive = active === i;
             return (
@@ -313,7 +313,7 @@ export const FeaturesSection: React.FC = () => {
 
 /* ═══ HOW IT WORKS ═══ */
 export const HowItWorksSection: React.FC = () => (
-  <section style={{ padding: "100px 24px", background: "linear-gradient(180deg, rgba(13,148,136,0.03) 0%, transparent 100%)" }}>
+  <section className="section-pad" style={{ padding: "100px 24px", background: "linear-gradient(180deg, rgba(13,148,136,0.03) 0%, transparent 100%)" }}>
     <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
       <p style={{ color: "var(--color-accent-light)", fontWeight: 600, fontSize: 13, textTransform: "uppercase", letterSpacing: 3, marginBottom: 12 }}>How It Works</p>
       <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, marginBottom: 64 }}>
@@ -337,7 +337,7 @@ export const HowItWorksSection: React.FC = () => (
 
 /* ═══ TESTIMONIALS ═══ */
 export const TestimonialsSection: React.FC = () => (
-  <section id="community" style={{ padding: "100px 24px" }}>
+  <section id="community" className="section-pad" style={{ padding: "100px 24px" }}>
     <div style={{ maxWidth: 1100, margin: "0 auto" }}>
       <div style={{ textAlign: "center", marginBottom: 64 }}>
         <p style={{ color: "var(--color-accent-light)", fontWeight: 600, fontSize: 13, textTransform: "uppercase", letterSpacing: 3, marginBottom: 12 }}>Testimonials</p>
@@ -378,7 +378,7 @@ export const CtaSection: React.FC = () => {
   return (
     <>
     <AppStoreModal open={modalOpen} onClose={() => setModalOpen(false)} />
-    <section id="download" style={{ padding: "100px 24px", position: "relative" }}>
+    <section id="download" className="section-pad" style={{ padding: "100px 24px", position: "relative" }}>
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(13,148,136,0.08) 0%, transparent 60%)" }} />
       <div style={{ maxWidth: 640, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
         <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, marginBottom: 16 }}>
@@ -389,12 +389,13 @@ export const CtaSection: React.FC = () => {
         </p>
 
         {!submitted ? (
-          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", marginBottom: 32 }}>
+          <div className="cta-form-row" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", marginBottom: 32 }}>
             <input
               type="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="cta-email-input"
               style={{ padding: "14px 20px", borderRadius: 14, border: "1px solid rgba(94,234,212,0.15)", background: "rgba(15,23,42,0.8)", color: "var(--color-text)", fontSize: 15, fontFamily: "var(--font-body)", width: 300, outline: "none", transition: "border-color 0.2s" }}
               onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(13,148,136,0.5)")}
               onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(94,234,212,0.15)")}

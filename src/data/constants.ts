@@ -2,7 +2,7 @@ import type { Feature, Testimonial, Stat, Step, FooterColumn } from "../types";
 
 export const SITE_NAME = "WinWhen";
 
-export const NAV_LINKS = ["Features", "Community", "Pricing", "About"];
+export const NAV_LINKS = ["Features", "Community", "About"];
 
 export const FEATURES: Feature[] = [
   {

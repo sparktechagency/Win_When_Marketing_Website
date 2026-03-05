@@ -6,6 +6,7 @@ import {
   FeaturesSection,
   HowItWorksSection,
   TestimonialsSection,
+  AboutSection,
   CtaSection,
 } from "./components/sections";
 
@@ -31,6 +32,7 @@ const App: React.FC = () => {
         <FeaturesSection />
         <HowItWorksSection />
         <TestimonialsSection />
+        <AboutSection />
         <CtaSection />
       </main>
 

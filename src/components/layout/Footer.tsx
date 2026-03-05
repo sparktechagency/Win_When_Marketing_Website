@@ -4,6 +4,7 @@ import { SITE_NAME, FOOTER_COLUMNS } from "../../data/constants";
 export const Footer: React.FC = () => (
   <footer style={{ padding: "48px 24px 32px", borderTop: "1px solid var(--color-border)" }}>
     <div
+      className="footer-inner"
       style={{
         maxWidth: 1100,
         margin: "0 auto",
@@ -65,6 +66,7 @@ export const Footer: React.FC = () => (
     </div>
 
     <div
+      className="footer-bottom"
       style={{
         maxWidth: 1100,
         margin: "32px auto 0",

@@ -107,18 +107,118 @@ a {
 @media (max-width: 640px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr) !important;
+    padding: 40px 20px !important;
     gap: 32px 0 !important;
   }
   .stats-grid > div {
     border-right: none !important;
     border-bottom: 1px solid rgba(94,234,212,0.08);
-    padding-bottom: 24px !important;
+    padding: 0 16px 24px !important;
   }
   .stats-grid > div:nth-child(odd) {
     border-right: 1px solid rgba(94,234,212,0.08) !important;
   }
   .stats-grid > div:nth-last-child(-n+2) {
     border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* ─── Section Padding ─── */
+@media (max-width: 768px) {
+  .section-pad {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+}
+@media (max-width: 480px) {
+  .section-pad {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+}
+
+/* ─── Hero Section ─── */
+@media (max-width: 768px) {
+  .hero-content {
+    text-align: center !important;
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+  }
+  .hero-content p {
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .hero-cta-buttons {
+    justify-content: center !important;
+  }
+  .hero-image-col {
+    flex: 1 1 100% !important;
+    order: -1;
+    max-height: 300px;
+    overflow: hidden;
+  }
+  .hero-image-col img {
+    max-width: 300px !important;
+  }
+  /* Disable float animation on mobile for perf */
+  .animate-float-1,
+  .animate-float-2,
+  .animate-float-3 {
+    animation: none !important;
+  }
+}
+
+/* ─── About Two-Column ─── */
+@media (max-width: 768px) {
+  .about-two-col {
+    gap: 32px !important;
+  }
+  .about-two-col > div:first-child {
+    max-width: 100% !important;
+  }
+}
+@media (max-width: 640px) {
+  .about-mission-stats {
+    gap: 12px !important;
+  }
+}
+
+/* ─── CTA Form ─── */
+@media (max-width: 640px) {
+  .cta-form-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+  .cta-email-input {
+    width: 100% !important;
+  }
+  .cta-form-row button {
+    width: 100% !important;
+  }
+}
+
+/* ─── Features Grid ─── */
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── Footer ─── */
+@media (max-width: 640px) {
+  .footer-inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 40px !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 8px !important;
   }
 }
 

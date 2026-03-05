@@ -7,7 +7,7 @@ export const HeroSection: React.FC = () => (
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      padding: "40px 24px 20px",
+      padding: "20px 24px 10px",
       position: "relative",
     }}
   >
@@ -51,7 +51,7 @@ export const HeroSection: React.FC = () => (
       }}
     >
       {/* Left content */}
-      <div style={{ flex: "1 1 480px", maxWidth: 560 }}>
+      <div className="hero-content" style={{ flex: "1 1 480px", maxWidth: 560 }}>
         <div
           className="animate-fade-up"
           style={{
@@ -101,7 +101,7 @@ export const HeroSection: React.FC = () => (
           live events, and meaningful conversations.
         </p>
 
-        <div className="animate-fade-up-d3" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+        <div className="animate-fade-up-d3 hero-cta-buttons" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
           <a
             href="#download"
             className="btn-glow"
@@ -158,7 +158,7 @@ export const HeroSection: React.FC = () => (
 
       {/* Right — Community image */}
       <div
-        className="animate-float-1"
+        className="animate-float-1 hero-image-col"
         style={{
           flex: "1 1 400px",
           display: "flex",
