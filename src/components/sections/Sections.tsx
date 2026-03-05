@@ -2,6 +2,197 @@ import React, { useState, useEffect } from "react";
 import { AnimatedStat } from "../ui";
 import { STATS, FEATURES, STEPS, TESTIMONIALS } from "../../data/constants";
 
+/* ═══ APP STORE UPCOMING MODAL ═══ */
+const AppStoreModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => {
+  const [notify, setNotify] = useState("");
+  const [notifyDone, setNotifyDone] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+      requestAnimationFrame(() => setVisible(true));
+    } else {
+      setVisible(false);
+      const t = setTimeout(() => { document.body.style.overflow = ""; }, 300);
+      return () => clearTimeout(t);
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  if (!open && !visible) return null;
+
+  return (
+    <div
+      onClick={onClose}
+      style={{
+        position: "fixed", inset: 0, zIndex: 1000,
+        background: "rgba(2,6,23,0.85)",
+        backdropFilter: "blur(12px)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        padding: 24,
+        opacity: visible ? 1 : 0,
+        transition: "opacity 0.3s ease",
+      }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          background: "linear-gradient(160deg, rgba(15,23,42,0.98) 0%, rgba(9,16,35,0.98) 100%)",
+          border: "1px solid rgba(94,234,212,0.12)",
+          borderRadius: 28,
+          padding: "48px 40px",
+          maxWidth: 440,
+          width: "100%",
+          position: "relative",
+          textAlign: "center",
+          boxShadow: "0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(94,234,212,0.05)",
+          transform: visible ? "translateY(0) scale(1)" : "translateY(24px) scale(0.96)",
+          transition: "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+        }}
+      >
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          style={{
+            position: "absolute", top: 16, right: 16,
+            background: "rgba(255,255,255,0.06)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: 10, width: 36, height: 36,
+            color: "var(--color-text-secondary)", fontSize: 16,
+            cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+            transition: "background 0.2s, color 0.2s",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.1)"; e.currentTarget.style.color = "var(--color-text)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "var(--color-text-secondary)"; }}
+        >
+          ✕
+        </button>
+
+        {/* Apple icon */}
+        <div style={{
+          width: 72, height: 72, borderRadius: 20,
+          background: "linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%)",
+          border: "1px solid rgba(255,255,255,0.1)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          margin: "0 auto 24px",
+          boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
+          fontSize: 34,
+        }}>
+
+        </div>
+
+        {/* Coming soon badge */}
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: 6,
+          padding: "4px 14px", borderRadius: 99, marginBottom: 16,
+          background: "rgba(94,234,212,0.08)",
+          border: "1px solid rgba(94,234,212,0.2)",
+          fontSize: 11, fontWeight: 700, letterSpacing: "1.5px",
+          color: "var(--color-accent-light)",
+          textTransform: "uppercase",
+        }}>
+          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--color-accent-light)", display: "inline-block", animation: "pulse-dot 2s infinite" }} />
+          Coming Soon
+        </div>
+
+        <h2 style={{
+          fontFamily: "var(--font-display)",
+          fontSize: "1.75rem", fontWeight: 800,
+          marginBottom: 12, lineHeight: 1.2,
+          color: "var(--color-text)",
+        }}>
+          iOS App is on<br />
+          <span style={{
+            background: "linear-gradient(135deg, var(--color-accent-light), var(--color-accent-lighter))",
+            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+          }}>
+            the Way
+          </span>
+        </h2>
+
+        <p style={{
+          color: "var(--color-text-secondary)", lineHeight: 1.7,
+          fontSize: "0.95rem", marginBottom: 32,
+        }}>
+          We're putting the finishing touches on our iOS app. Drop your email and we'll notify you the moment it launches on the App Store.
+        </p>
+
+        {!notifyDone ? (
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            <input
+              type="email"
+              placeholder="your@email.com"
+              value={notify}
+              onChange={(e) => setNotify(e.target.value)}
+              style={{
+                padding: "13px 18px", borderRadius: 12,
+                border: "1px solid rgba(94,234,212,0.15)",
+                background: "rgba(255,255,255,0.04)",
+                color: "var(--color-text)", fontSize: 15,
+                fontFamily: "var(--font-body)", outline: "none",
+                transition: "border-color 0.2s",
+              }}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(13,148,136,0.5)")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(94,234,212,0.15)")}
+            />
+            <button
+              onClick={() => notify && setNotifyDone(true)}
+              className="btn-glow"
+              style={{
+                padding: "13px 24px", borderRadius: 12,
+                background: "linear-gradient(135deg, var(--color-accent), var(--color-accent-mid))",
+                color: "#020617", fontWeight: 700, fontSize: 15,
+                border: "none", cursor: "pointer",
+                fontFamily: "var(--font-body)",
+                transition: "transform 0.2s, box-shadow 0.2s",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 10px 28px rgba(13,148,136,0.45)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
+            >
+              Notify Me at Launch
+            </button>
+          </div>
+        ) : (
+          <div style={{
+            padding: "16px 24px", borderRadius: 14,
+            background: "rgba(13,148,136,0.1)",
+            border: "1px solid rgba(13,148,136,0.25)",
+            color: "var(--color-accent-light)", fontWeight: 600, fontSize: 15,
+          }}>
+            You're on the list! We'll ping you when iOS launches.
+          </div>
+        )}
+
+        {/* Already on Android callout */}
+        <div style={{ marginTop: 24, paddingTop: 20, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+          <p style={{ fontSize: 13, color: "var(--color-text-muted)", marginBottom: 10 }}>
+            Already available on Android?
+          </p>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.social.winwhen&pcampaignid=web_share"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              padding: "10px 20px", borderRadius: 10,
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(94,234,212,0.12)",
+              color: "var(--color-text-secondary)", fontSize: 13, fontWeight: 500,
+              transition: "border-color 0.2s, color 0.2s",
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(94,234,212,0.3)"; e.currentTarget.style.color = "var(--color-text)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(94,234,212,0.12)"; e.currentTarget.style.color = "var(--color-text-secondary)"; }}
+          >
+            <span style={{ fontSize: 16 }}>🤖</span>
+            Download on Google Play
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 /* ═══ STATS ═══ */
 export const StatsSection: React.FC = () => (
   <section style={{ padding: "0", position: "relative", overflow: "hidden" }}>
@@ -182,8 +373,11 @@ export const TestimonialsSection: React.FC = () => (
 export const CtaSection: React.FC = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
+    <>
+    <AppStoreModal open={modalOpen} onClose={() => setModalOpen(false)} />
     <section id="download" style={{ padding: "100px 24px", position: "relative" }}>
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(13,148,136,0.08) 0%, transparent 60%)" }} />
       <div style={{ maxWidth: 640, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
@@ -222,22 +416,38 @@ export const CtaSection: React.FC = () => {
         )}
 
         <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-          {[{ name: "App Store", icon: "🍎" }, { name: "Google Play", icon: "🤖" }].map((store) => (
-            <div
-              key={store.name}
-              style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 24px", borderRadius: 12, background: "var(--color-elevated)", border: "1px solid rgba(94,234,212,0.1)", cursor: "pointer", transition: "border-color 0.2s" }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(94,234,212,0.3)")}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(94,234,212,0.1)")}
-            >
-              <span style={{ fontSize: 22 }}>{store.icon}</span>
-              <div style={{ textAlign: "left" }}>
-                <div style={{ fontSize: 10, color: "var(--color-text-muted)" }}>Download on</div>
-                <div style={{ fontSize: 14, fontWeight: 600 }}>{store.name}</div>
-              </div>
+          {/* App Store — opens Coming Soon modal */}
+          <button
+            onClick={() => setModalOpen(true)}
+            style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 24px", borderRadius: 12, background: "var(--color-elevated)", border: "1px solid rgba(94,234,212,0.1)", cursor: "pointer", transition: "border-color 0.2s, transform 0.2s", fontFamily: "var(--font-body)" }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(94,234,212,0.3)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(94,234,212,0.1)"; e.currentTarget.style.transform = "translateY(0)"; }}
+          >
+            <span style={{ fontSize: 22 }}>🍎</span>
+            <div style={{ textAlign: "left" }}>
+              <div style={{ fontSize: 10, color: "var(--color-text-muted)" }}>Download on</div>
+              <div style={{ fontSize: 14, fontWeight: 600, color: "var(--color-text)" }}>App Store</div>
             </div>
-          ))}
+          </button>
+
+          {/* Google Play — direct link */}
+          <a
+            href="https://play.google.com/store/apps/details?id=com.social.winwhen&pcampaignid=web_share"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 24px", borderRadius: 12, background: "var(--color-elevated)", border: "1px solid rgba(94,234,212,0.1)", cursor: "pointer", transition: "border-color 0.2s, transform 0.2s", textDecoration: "none" }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(94,234,212,0.3)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(94,234,212,0.1)"; e.currentTarget.style.transform = "translateY(0)"; }}
+          >
+            <span style={{ fontSize: 22 }}>🤖</span>
+            <div style={{ textAlign: "left" }}>
+              <div style={{ fontSize: 10, color: "var(--color-text-muted)" }}>Get it on</div>
+              <div style={{ fontSize: 14, fontWeight: 600, color: "var(--color-text)" }}>Google Play</div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
+    </>
   );
 };
