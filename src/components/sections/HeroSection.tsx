@@ -203,11 +203,7 @@ export const HeroSection: React.FC = () => (
           marginBottom: 36,
           maxWidth: 480,
         }}>
-          WinWhen helps families and friends stay connected by sharing schedules for games,
-          concerts, graduations, and life's biggest moments.{" "}
-          <span style={{ color: "var(--color-accent-light)", fontWeight: 500 }}>
-            Because every moment is better when someone is cheering for you.
-          </span>
+          WinWhen keeps families and friends connected by sharing schedules for games, performances, and life's biggest milestones.
         </p>
 
         {/* CTA Buttons */}
