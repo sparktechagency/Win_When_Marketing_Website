@@ -69,7 +69,7 @@ export const HeroSection: React.FC = () => (
           }}
         >
           <span className="animate-pulse-dot">●</span>
-          Now available on iOS & Android
+          Available on iOS & Android
         </div>
 
         <h1
@@ -82,9 +82,9 @@ export const HeroSection: React.FC = () => (
             marginBottom: 20,
           }}
         >
-          Win Together.
+          Never Miss the Moments
           <br />
-          <span className="text-gradient-wide">Connect When</span> It Matters.
+          <span className="text-gradient-wide">That Matter</span>
         </h1>
 
         <p
@@ -97,8 +97,9 @@ export const HeroSection: React.FC = () => (
             maxWidth: 460,
           }}
         >
-          The community app that brings people together through verified profiles, smart matching,
-          live events, and meaningful conversations.
+          WinWhen helps families and friends stay connected by sharing schedules for games,
+          concerts, graduations, and life's biggest moments. Because every moment is better
+          when someone is cheering for you.
         </p>
 
         <div className="animate-fade-up-d3 hero-cta-buttons" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>

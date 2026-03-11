@@ -10,8 +10,8 @@ const VALUES = [
         <path d="M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
-    title: "Community First",
-    desc: "Every decision we make starts with one question: does this bring real people closer together? Technology is just the bridge.",
+    title: "Family First",
+    desc: "Every feature we build starts with one question: does this help families and friends show up for each other? Technology is just the bridge.",
   },
   {
     icon: (
@@ -19,8 +19,8 @@ const VALUES = [
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
-    title: "Trust by Design",
-    desc: "OTP-verified profiles, transparent matching, and zero tolerance for fake accounts. Safety isn't an afterthought — it's the foundation.",
+    title: "Privacy by Design",
+    desc: "Your schedule is shared only with people you choose. We keep your moments private and your data secure — always.",
   },
   {
     icon: (
@@ -29,7 +29,7 @@ const VALUES = [
       </svg>
     ),
     title: "Built with Heart",
-    desc: "WinWhen was born from a real need — to find your people in a noisy world. Every feature is crafted with genuine care for human connection.",
+    desc: "WinWhen was born from a real need — to stop missing the moments that matter. Every feature is crafted with genuine care for the people you love.",
   },
   {
     icon: (
@@ -39,7 +39,7 @@ const VALUES = [
       </svg>
     ),
     title: "Always Improving",
-    desc: "We ship fast, listen to our community, and iterate relentlessly. The app you use today is better than yesterday — and tomorrow's is better still.",
+    desc: "We listen to our community and ship updates fast. The app you use today is better than yesterday — and we're not stopping there.",
   },
 ];
 
@@ -67,7 +67,7 @@ export const AboutSection: React.FC = () => (
           color: "var(--color-accent-light)", fontWeight: 600, fontSize: 13,
           textTransform: "uppercase", letterSpacing: 3, marginBottom: 12,
         }}>
-          About
+          Why WinWhen
         </p>
         <h2 style={{
           fontFamily: "var(--font-display)",
@@ -75,21 +75,21 @@ export const AboutSection: React.FC = () => (
           fontWeight: 900, lineHeight: 1.15,
           marginBottom: 20,
         }}>
-          We Believe Every Person<br />
-          Deserves a{" "}
+          Because Every Achievement<br />
+          Deserves an{" "}
           <span style={{
             background: "linear-gradient(135deg, var(--color-accent-light), var(--color-accent-lighter))",
             WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
           }}>
-            Real Community
+            Audience
           </span>
         </h2>
         <p style={{
           color: "var(--color-text-secondary)", fontSize: "1.1rem",
           lineHeight: 1.75, maxWidth: 600, margin: "0 auto",
         }}>
-          WinWhen started with a simple idea — the right connections change lives. We set out to
-          build an app where authenticity beats algorithms, and where winning together is the only goal.
+          Life gets busy, and it's easy to miss important events. WinWhen makes it simple for
+          families and friends to stay connected, support each other, and celebrate milestones together.
         </p>
       </div>
 
@@ -121,9 +121,9 @@ export const AboutSection: React.FC = () => (
               lineHeight: 1.8, fontStyle: "italic",
               position: "relative", zIndex: 1, paddingTop: 16,
             }}>
-              We built WinWhen because we were tired of social apps that made us feel more alone.
-              Real community happens when people show up authentically — and we made it our mission
-              to build the space where that's possible.
+              We built WinWhen because we kept missing the moments that mattered most —
+              kids' games, school concerts, family milestones. We made it our mission to make
+              sure no one ever has to miss those moments again.
             </p>
             <div style={{ marginTop: 20, display: "flex", alignItems: "center", gap: 12 }}>
               <div style={{
@@ -145,8 +145,8 @@ export const AboutSection: React.FC = () => (
           <div className="about-mission-stats" style={{ display: "flex", gap: 20 }}>
             {[
               { num: "2023", label: "Founded" },
-              { num: "50K+", label: "Members" },
-              { num: "15+", label: "Countries" },
+              { num: "50K+", label: "Families" },
+              { num: "200K+", label: "Events Shared" },
             ].map((s, i) => (
               <div key={i} style={{
                 flex: 1, textAlign: "center", padding: "18px 12px",

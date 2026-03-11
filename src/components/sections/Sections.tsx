@@ -270,10 +270,10 @@ export const FeaturesSection: React.FC = () => {
         <div style={{ textAlign: "center", marginBottom: 64 }}>
           <p style={{ color: "var(--color-accent-light)", fontWeight: 600, fontSize: 13, textTransform: "uppercase", letterSpacing: 3, marginBottom: 12 }}>Features</p>
           <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, marginBottom: 16 }}>
-            Everything You Need to <span className="text-gradient">Connect</span>
+            Everything You Need to <span className="text-gradient">Stay Connected</span>
           </h2>
           <p style={{ color: "var(--color-text-muted)", maxWidth: 520, margin: "0 auto", lineHeight: 1.7 }}>
-            Built with care for communities that value authentic relationships and real-world connections.
+            Built for families and friends who want to show up for each other and celebrate life's most important moments together.
           </p>
         </div>
 
@@ -317,7 +317,7 @@ export const HowItWorksSection: React.FC = () => (
     <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
       <p style={{ color: "var(--color-accent-light)", fontWeight: 600, fontSize: 13, textTransform: "uppercase", letterSpacing: 3, marginBottom: 12 }}>How It Works</p>
       <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, marginBottom: 64 }}>
-        Three Steps to Your <span className="text-gradient">Community</span>
+        Three Steps to <span className="text-gradient">Never Miss a Moment</span>
       </h2>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 40 }}>
@@ -342,7 +342,7 @@ export const TestimonialsSection: React.FC = () => (
       <div style={{ textAlign: "center", marginBottom: 64 }}>
         <p style={{ color: "var(--color-accent-light)", fontWeight: 600, fontSize: 13, textTransform: "uppercase", letterSpacing: 3, marginBottom: 12 }}>Testimonials</p>
         <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800 }}>
-          Loved by Our <span className="text-gradient">Community</span>
+          Loved by <span className="text-gradient">Families Everywhere</span>
         </h2>
       </div>
 
@@ -382,10 +382,10 @@ export const CtaSection: React.FC = () => {
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(13,148,136,0.08) 0%, transparent 60%)" }} />
       <div style={{ maxWidth: 640, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
         <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, marginBottom: 16 }}>
-          Ready to <span className="text-gradient-wide">Win Together</span>?
+          Ready to <span className="text-gradient-wide">Never Miss a Moment</span>?
         </h2>
         <p style={{ color: "var(--color-text-muted)", lineHeight: 1.7, marginBottom: 36, fontSize: "1.05rem" }}>
-          Join thousands building meaningful connections. Download WinWhen today — it's free.
+          Join thousands of families staying connected. Download WinWhen today — it's free.
         </p>
 
         {!submitted ? (

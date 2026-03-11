@@ -6,69 +6,64 @@ export const NAV_LINKS = ["Features", "Community", "About"];
 
 export const FEATURES: Feature[] = [
   {
-    icon: "👥",
-    title: "People You May Know",
-    desc: "Smart suggestions powered by shared interests, mutual connections, and your activity — find your tribe effortlessly.",
-  },
-  {
-    icon: "💬",
-    title: "1-on-1 & Group Chat",
-    desc: "Real-time messaging with rich media support. Create groups, share moments, and stay connected with those who matter.",
-  },
-  {
-    icon: "🛡️",
-    title: "Verified Profiles",
-    desc: "OTP-based verification ensures every member is real. Build trust before you build connections.",
-  },
-  {
-    icon: "🔍",
-    title: "Smart Filters",
-    desc: "Advanced filtering to find exactly who you're looking for — by interest, location, availability, and more.",
-  },
-  {
-    icon: "👤",
-    title: "Rich Member Profiles",
-    desc: "Showcase your personality with detailed profiles, events attended, and community badges.",
-  },
-  {
     icon: "📅",
-    title: "Events & Meetups",
-    desc: "Discover local events, RSVP with one tap, and meet like-minded people in real life.",
+    title: "Share Your Schedule",
+    desc: "Post upcoming events like sports games, band concerts, recitals, graduations, and more for everyone who matters to see.",
+  },
+  {
+    icon: "🔔",
+    title: "Stay in the Loop",
+    desc: "Follow family and friends to see all their upcoming events in one organized, easy-to-read place.",
+  },
+  {
+    icon: "🙌",
+    title: "Show Your Support",
+    desc: "Mark whether you're going so everyone knows who will be there cheering. Because showing up matters.",
+  },
+  {
+    icon: "📸",
+    title: "Capture the Moment",
+    desc: "After the event, add scores, highlights, and comments to celebrate the outcome and preserve the memory.",
+  },
+  {
+    icon: "⏰",
+    title: "Never Miss an Event",
+    desc: "Get timely reminders before events start so you're always there for the moments that matter most.",
   },
 ];
 
 export const STEPS: Step[] = [
-  { step: "01", title: "Create & Verify", desc: "Sign up with OTP verification. Build your profile with interests and goals." },
-  { step: "02", title: "Discover & Connect", desc: "Browse smart suggestions, filter by what matters, and send connection requests." },
-  { step: "03", title: "Chat & Meet", desc: "Message 1-on-1 or in groups. Join events and build lasting relationships." },
+  { step: "01", title: "Share Your Events", desc: "Post your upcoming games, concerts, recitals, and milestones so family and friends always know what's coming." },
+  { step: "02", title: "Follow & Support", desc: "Follow the people you care about, see their upcoming events, and mark if you'll be there to cheer them on." },
+  { step: "03", title: "Celebrate Together", desc: "After the event, add scores, highlights, and comments to celebrate every achievement and capture the memory." },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Sarah K.",
-    role: "Community Organizer",
-    text: "WinWhen completely changed how I discover and connect with people in my area. The events feature is a game-changer!",
-    avatar: "SK",
+    name: "Sarah M.",
+    role: "Soccer Mom",
+    text: "WinWhen keeps our whole extended family in sync. Grandma never misses a game anymore — she always knows exactly when to show up and cheer!",
+    avatar: "SM",
   },
   {
-    name: "Marcus T.",
-    role: "Startup Founder",
-    text: "I've found three co-founders and dozens of mentors through WinWhen. The smart matching is eerily accurate.",
-    avatar: "MT",
+    name: "James T.",
+    role: "Youth Soccer Coach",
+    text: "I post our game schedule once and every parent sees it, RSVPs, and gets reminders. It's completely changed how we organize our team's events.",
+    avatar: "JT",
   },
   {
-    name: "Priya D.",
-    role: "Freelance Designer",
-    text: "Finally a social app that feels safe. Verified profiles mean I actually trust who I'm talking to.",
-    avatar: "PD",
+    name: "Priya L.",
+    role: "Concert Performer",
+    text: "My family lives across the country but WinWhen keeps them connected to every recital and concert. They never miss a single performance!",
+    avatar: "PL",
   },
 ];
 
 export const STATS: Stat[] = [
-  { value: "50K+", label: "Active Users" },
-  { value: "12K+", label: "Connections Made" },
-  { value: "3K+", label: "Events Hosted" },
-  { value: "98%", label: "Satisfaction Rate" },
+  { value: "50K+", label: "Families Connected" },
+  { value: "200K+", label: "Events Shared" },
+  { value: "1M+", label: "Moments Captured" },
+  { value: "98%", label: "Would Recommend" },
 ];
 
 export const FOOTER_COLUMNS: FooterColumn[] = [
