@@ -244,13 +244,36 @@ a {
   .footer-inner {
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 40px !important;
+    gap: 28px !important;
+  }
+  .footer-cols-row {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+  }
+  .footer-cols-row > div {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+  .footer-cols-row h4 {
+    font-size: 12px !important;
+    margin-bottom: 10px !important;
+  }
+  .footer-cols-row a {
+    font-size: 11px !important;
+    margin-bottom: 6px !important;
   }
   .footer-bottom {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    gap: 8px !important;
+    gap: 4px !important;
+    font-size: 11px !important;
+  }
+  footer {
+    padding: 36px 20px 24px !important;
   }
 }
 

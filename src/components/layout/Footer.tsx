@@ -41,28 +41,30 @@ export const Footer: React.FC = () => (
         </p>
       </div>
 
-      {FOOTER_COLUMNS.map((col) => (
-        <div key={col.title}>
-          <h4 style={{ fontWeight: 600, fontSize: 14, marginBottom: 14, color: "var(--color-text)" }}>{col.title}</h4>
-          {col.links.map((link) => (
-            <a
-              key={link}
-              href="#"
-              style={{
-                display: "block",
-                color: "var(--color-text-faint)",
-                fontSize: 13,
-                marginBottom: 8,
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent-light)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-faint)")}
-            >
-              {link}
-            </a>
-          ))}
-        </div>
-      ))}
+      <div className="footer-cols-row" style={{ display: "contents" }}>
+        {FOOTER_COLUMNS.map((col) => (
+          <div key={col.title}>
+            <h4 style={{ fontWeight: 600, fontSize: 14, marginBottom: 14, color: "var(--color-text)" }}>{col.title}</h4>
+            {col.links.map((link) => (
+              <a
+                key={link}
+                href="#"
+                style={{
+                  display: "block",
+                  color: "var(--color-text-faint)",
+                  fontSize: 13,
+                  marginBottom: 8,
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent-light)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-faint)")}
+              >
+                {link}
+              </a>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
 
     <div
