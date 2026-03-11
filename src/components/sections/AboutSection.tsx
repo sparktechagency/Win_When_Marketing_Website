@@ -103,8 +103,8 @@ export const AboutSection: React.FC = () => (
           {/* Founder quote card */}
           <div style={{
             padding: "32px 36px", borderRadius: 20,
-            background: "linear-gradient(135deg, rgba(13,148,136,0.08) 0%, rgba(15,23,42,0.6) 100%)",
-            border: "1px solid rgba(94,234,212,0.1)",
+            background: "var(--color-card)",
+            border: "1px solid var(--color-border-hover)",
             marginBottom: 32, position: "relative",
           }}>
             {/* Quote mark */}
@@ -151,8 +151,8 @@ export const AboutSection: React.FC = () => (
               <div key={i} style={{
                 flex: 1, textAlign: "center", padding: "18px 12px",
                 borderRadius: 14,
-                background: "rgba(15,23,42,0.5)",
-                border: "1px solid rgba(94,234,212,0.07)",
+                background: "var(--color-card)",
+                border: "1px solid var(--color-border)",
               }}>
                 <div style={{
                   fontFamily: "var(--font-display)", fontSize: "1.5rem",
@@ -214,25 +214,25 @@ export const AboutSection: React.FC = () => (
               style={{
                 padding: "28px 28px",
                 borderRadius: 18,
-                background: "rgba(15,23,42,0.5)",
-                border: "1px solid rgba(94,234,212,0.07)",
+                background: "var(--color-card)",
+                border: "1px solid var(--color-border)",
                 transition: "border-color 0.25s, transform 0.25s, background 0.25s",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(94,234,212,0.18)";
+                e.currentTarget.style.borderColor = "var(--color-border-hover)";
                 e.currentTarget.style.transform = "translateY(-4px)";
-                e.currentTarget.style.background = "linear-gradient(135deg, rgba(13,148,136,0.08) 0%, rgba(15,23,42,0.7) 100%)";
+                e.currentTarget.style.background = "var(--color-card)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(94,234,212,0.07)";
+                e.currentTarget.style.borderColor = "var(--color-border)";
                 e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.background = "rgba(15,23,42,0.5)";
+                e.currentTarget.style.background = "var(--color-card)";
               }}
             >
               <div style={{
                 width: 44, height: 44, borderRadius: 12, marginBottom: 16,
                 background: "rgba(13,148,136,0.1)",
-                border: "1px solid rgba(94,234,212,0.12)",
+                border: "1px solid var(--color-border-hover)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 color: "var(--color-accent-light)",
               }}>

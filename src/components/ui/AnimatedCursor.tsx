@@ -103,14 +103,15 @@ export const AnimatedCursor: React.FC = () => {
           width: hovering ? 48 : clicking ? 28 : 36,
           height: hovering ? 48 : clicking ? 28 : 36,
           borderRadius: "50%",
-          border: `1.5px solid ${hovering ? "var(--color-accent-light)" : "rgba(94,234,212,0.5)"}`,
+          border: `1.5px solid var(--color-accent-light)`,
+          opacity: hovering ? 1 : 0.55,
           pointerEvents: "none",
           zIndex: 99998,
           marginLeft: hovering ? -24 : clicking ? -14 : -18,
           marginTop: hovering ? -24 : clicking ? -14 : -18,
-          transition: "width 0.3s cubic-bezier(0.16,1,0.3,1), height 0.3s cubic-bezier(0.16,1,0.3,1), margin 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, opacity 0.2s",
-          background: hovering ? "rgba(94,234,212,0.06)" : "transparent",
-          boxShadow: hovering ? "0 0 16px rgba(94,234,212,0.15)" : "none",
+          transition: "width 0.3s cubic-bezier(0.16,1,0.3,1), height 0.3s cubic-bezier(0.16,1,0.3,1), margin 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, opacity 0.3s, box-shadow 0.3s",
+          background: hovering ? "rgba(94,234,212,0.08)" : "transparent",
+          boxShadow: hovering ? "0 0 16px rgba(94,234,212,0.2)" : "none",
         }}
       />
     </>

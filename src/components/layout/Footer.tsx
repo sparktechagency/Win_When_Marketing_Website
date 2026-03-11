@@ -73,7 +73,7 @@ export const Footer: React.FC = () => (
         maxWidth: 1100,
         margin: "32px auto 0",
         paddingTop: 24,
-        borderTop: "1px solid rgba(94,234,212,0.04)",
+        borderTop: "1px solid var(--color-border)",
         display: "flex",
         justifyContent: "space-between",
         flexWrap: "wrap",

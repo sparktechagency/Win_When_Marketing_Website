@@ -44,7 +44,7 @@ const MiniAvatar: React.FC<{ letter: string; idx: number }> = ({ letter, idx }) 
   <div style={{
     width: 22, height: 22, borderRadius: "50%",
     background: AVATAR_COLORS[idx % AVATAR_COLORS.length],
-    border: "2px solid #0d1424",
+    border: "2px solid var(--color-avatar-border)",
     display: "flex", alignItems: "center", justifyContent: "center",
     fontSize: 8, fontWeight: 800, color: "#020617",
     marginLeft: idx === 0 ? 0 : -6,
@@ -56,12 +56,12 @@ const MiniAvatar: React.FC<{ letter: string; idx: number }> = ({ letter, idx }) 
 
 const EventCard: React.FC<{ event: typeof PREVIEW_EVENTS[0]; style?: React.CSSProperties }> = ({ event, style }) => (
   <div style={{
-    background: "linear-gradient(145deg, rgba(15,23,42,0.97) 0%, rgba(9,16,35,0.99) 100%)",
-    border: "1px solid rgba(94,234,212,0.1)",
+    background: "var(--color-card-solid)",
+    border: "1px solid var(--color-border-hover)",
     borderRadius: 18,
     padding: "16px 18px",
     backdropFilter: "blur(20px)",
-    boxShadow: "0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(94,234,212,0.04)",
+    boxShadow: "0 20px 60px var(--color-shadow), 0 0 0 1px var(--color-border)",
     ...style,
   }}>
     <div style={{ display: "flex", alignItems: "flex-start", gap: 12, marginBottom: 12 }}>
@@ -165,7 +165,7 @@ export const HeroSection: React.FC = () => (
           display: "inline-flex", alignItems: "center", gap: 8,
           padding: "6px 16px", borderRadius: 99, marginBottom: 28,
           background: "rgba(13,148,136,0.08)",
-          border: "1px solid rgba(13,148,136,0.2)",
+          border: "1px solid var(--color-border-active)",
           fontSize: 12, fontWeight: 600, letterSpacing: "0.05em",
           color: "var(--color-accent-light)",
         }}>
@@ -245,20 +245,20 @@ export const HeroSection: React.FC = () => (
             style={{
               display: "inline-flex", alignItems: "center", gap: 8,
               padding: "14px 32px", borderRadius: 100,
-              border: "1px solid rgba(94,234,212,0.15)",
-              background: "rgba(94,234,212,0.03)",
+              border: "1px solid var(--color-border)",
+              background: "var(--color-card)",
               color: "var(--color-text-secondary)", fontWeight: 600, fontSize: 15,
               transition: "border-color 0.2s, color 0.2s, background 0.2s",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(94,234,212,0.35)";
+              e.currentTarget.style.borderColor = "var(--color-border-hover)";
               e.currentTarget.style.color = "var(--color-accent-light)";
-              e.currentTarget.style.background = "rgba(94,234,212,0.06)";
+              e.currentTarget.style.background = "var(--color-card)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(94,234,212,0.15)";
+              e.currentTarget.style.borderColor = "var(--color-border)";
               e.currentTarget.style.color = "var(--color-text-secondary)";
-              e.currentTarget.style.background = "rgba(94,234,212,0.03)";
+              e.currentTarget.style.background = "var(--color-card)";
             }}
           >
             See Features
@@ -269,8 +269,8 @@ export const HeroSection: React.FC = () => (
         <div className="animate-fade-up-d3" style={{
           display: "inline-flex", alignItems: "center", gap: 12,
           padding: "10px 20px", borderRadius: 99,
-          background: "rgba(15,23,42,0.55)",
-          border: "1px solid rgba(94,234,212,0.07)",
+          background: "var(--color-card)",
+          border: "1px solid var(--color-border)",
           backdropFilter: "blur(12px)",
         }}>
           <div style={{ display: "flex" }}>
@@ -278,15 +278,15 @@ export const HeroSection: React.FC = () => (
               <div key={i} style={{
                 width: 28, height: 28, borderRadius: "50%",
                 background: AVATAR_COLORS[i],
-                border: "2px solid rgba(2,6,23,0.9)",
+                border: "2px solid var(--color-avatar-border)",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 9.5, fontWeight: 800, color: "#020617",
+                fontSize: 9.5, fontWeight: 800, color: "#0f172a",
                 marginLeft: i === 0 ? 0 : -8,
                 zIndex: 10 - i, position: "relative",
               }}>{l}</div>
             ))}
           </div>
-          <div style={{ width: 1, height: 16, background: "rgba(94,234,212,0.1)" }} />
+          <div style={{ width: 1, height: 16, background: "var(--color-border-hover)" }} />
           <div style={{ display: "flex", gap: 2 }}>
             {[0, 1, 2, 3, 4].map(i => (
               <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#fde047" stroke="none">
@@ -337,11 +337,11 @@ export const HeroSection: React.FC = () => (
         {/* Notification toast */}
         <div className="animate-float-1" style={{
           position: "absolute", top: -24, right: -16,
-          background: "linear-gradient(135deg, rgba(15,23,42,0.97) 0%, rgba(9,16,35,0.99) 100%)",
-          border: "1px solid rgba(94,234,212,0.15)",
+          background: "var(--color-card-solid)",
+          border: "1px solid var(--color-border-hover)",
           borderRadius: 14, padding: "10px 14px",
           display: "flex", alignItems: "center", gap: 10,
-          boxShadow: "0 12px 40px rgba(0,0,0,0.5)",
+          boxShadow: "0 12px 40px var(--color-shadow)",
           zIndex: 3,
           backdropFilter: "blur(20px)",
           maxWidth: 220,
@@ -366,11 +366,11 @@ export const HeroSection: React.FC = () => (
         {/* Support badge */}
         <div style={{
           position: "absolute", bottom: -20, left: -16,
-          background: "linear-gradient(135deg, rgba(13,148,136,0.15) 0%, rgba(15,23,42,0.97) 100%)",
-          border: "1px solid rgba(13,148,136,0.2)",
+          background: "var(--color-card-solid)",
+          border: "1px solid var(--color-border-active)",
           borderRadius: 14, padding: "10px 16px",
           display: "flex", alignItems: "center", gap: 8,
-          boxShadow: "0 12px 40px rgba(0,0,0,0.4)",
+          boxShadow: "0 12px 40px var(--color-shadow)",
           zIndex: 3,
           backdropFilter: "blur(20px)",
         }}>
@@ -379,9 +379,9 @@ export const HeroSection: React.FC = () => (
               <div key={i} style={{
                 width: 22, height: 22, borderRadius: "50%",
                 background: AVATAR_COLORS[i],
-                border: "2px solid rgba(2,6,23,0.9)",
+                border: "2px solid var(--color-avatar-border)",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 7.5, fontWeight: 800, color: "#020617",
+                fontSize: 7.5, fontWeight: 800, color: "#0f172a",
                 marginLeft: i === 0 ? 0 : -6, position: "relative", zIndex: 3 - i,
               }}>{l}</div>
             ))}

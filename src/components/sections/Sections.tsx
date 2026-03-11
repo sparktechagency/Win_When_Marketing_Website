@@ -27,7 +27,7 @@ const AppStoreModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open,
       onClick={onClose}
       style={{
         position: "fixed", inset: 0, zIndex: 1000,
-        background: "rgba(2,6,23,0.85)",
+        background: "var(--color-overlay)",
         backdropFilter: "blur(12px)",
         display: "flex", alignItems: "center", justifyContent: "center",
         padding: 24,
@@ -38,15 +38,15 @@ const AppStoreModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open,
       <div
         onClick={(e) => e.stopPropagation()}
         style={{
-          background: "linear-gradient(160deg, rgba(15,23,42,0.98) 0%, rgba(9,16,35,0.98) 100%)",
-          border: "1px solid rgba(94,234,212,0.12)",
+          background: "var(--color-elevated)",
+          border: "1px solid var(--color-border)",
           borderRadius: 28,
           padding: "48px 40px",
           maxWidth: 440,
           width: "100%",
           position: "relative",
           textAlign: "center",
-          boxShadow: "0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(94,234,212,0.05)",
+          boxShadow: "0 40px 80px var(--color-shadow), 0 0 0 1px var(--color-border)",
           transform: visible ? "translateY(0) scale(1)" : "translateY(24px) scale(0.96)",
           transition: "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
@@ -56,15 +56,15 @@ const AppStoreModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open,
           onClick={onClose}
           style={{
             position: "absolute", top: 16, right: 16,
-            background: "rgba(255,255,255,0.06)",
-            border: "1px solid rgba(255,255,255,0.08)",
+            background: "var(--color-close-btn)",
+            border: "1px solid var(--color-border)",
             borderRadius: 10, width: 36, height: 36,
             color: "var(--color-text-secondary)", fontSize: 16,
             cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
             transition: "background 0.2s, color 0.2s",
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.1)"; e.currentTarget.style.color = "var(--color-text)"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "var(--color-text-secondary)"; }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = "var(--color-close-btn-hover)"; e.currentTarget.style.color = "var(--color-text)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "var(--color-close-btn)"; e.currentTarget.style.color = "var(--color-text-secondary)"; }}
         >
           ✕
         </button>
@@ -87,7 +87,7 @@ const AppStoreModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open,
           display: "inline-flex", alignItems: "center", gap: 6,
           padding: "4px 14px", borderRadius: 99, marginBottom: 16,
           background: "rgba(94,234,212,0.08)",
-          border: "1px solid rgba(94,234,212,0.2)",
+          border: "1px solid var(--color-border-hover)",
           fontSize: 11, fontWeight: 700, letterSpacing: "1.5px",
           color: "var(--color-accent-light)",
           textTransform: "uppercase",
@@ -127,14 +127,14 @@ const AppStoreModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open,
               onChange={(e) => setNotify(e.target.value)}
               style={{
                 padding: "13px 18px", borderRadius: 12,
-                border: "1px solid rgba(94,234,212,0.15)",
-                background: "rgba(255,255,255,0.04)",
+                border: "1px solid var(--color-border)",
+                background: "var(--color-input-bg)",
                 color: "var(--color-text)", fontSize: 15,
                 fontFamily: "var(--font-body)", outline: "none",
                 transition: "border-color 0.2s",
               }}
               onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(13,148,136,0.5)")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(94,234,212,0.15)")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "var(--color-border)")}
             />
             <button
               onClick={() => notify && setNotifyDone(true)}
@@ -165,7 +165,7 @@ const AppStoreModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open,
         )}
 
         {/* Already on Android callout */}
-        <div style={{ marginTop: 24, paddingTop: 20, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <div style={{ marginTop: 24, paddingTop: 20, borderTop: "1px solid var(--color-border)" }}>
           <p style={{ fontSize: 13, color: "var(--color-text-muted)", marginBottom: 10 }}>
             Already available on Android?
           </p>
@@ -176,13 +176,13 @@ const AppStoreModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open,
             style={{
               display: "inline-flex", alignItems: "center", gap: 8,
               padding: "10px 20px", borderRadius: 10,
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(94,234,212,0.12)",
+              background: "var(--color-input-bg)",
+              border: "1px solid var(--color-border)",
               color: "var(--color-text-secondary)", fontSize: 13, fontWeight: 500,
               transition: "border-color 0.2s, color 0.2s",
             }}
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(94,234,212,0.3)"; e.currentTarget.style.color = "var(--color-text)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(94,234,212,0.12)"; e.currentTarget.style.color = "var(--color-text-secondary)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--color-border)"; e.currentTarget.style.color = "var(--color-text-secondary)"; }}
           >
             <span style={{ fontSize: 16 }}>🤖</span>
             Download on Google Play
@@ -223,7 +223,7 @@ export const StatsSection: React.FC = () => (
 
     <div
       style={{
-        background: "linear-gradient(135deg, rgba(13,148,136,0.06) 0%, rgba(15,23,42,0.5) 50%, rgba(94,234,212,0.03) 100%)",
+        background: "linear-gradient(135deg, rgba(13,148,136,0.08) 0%, var(--color-card) 50%, rgba(94,234,212,0.05) 100%)",
         backdropFilter: "blur(8px)",
       }}
     >
@@ -243,7 +243,7 @@ export const StatsSection: React.FC = () => (
               position: "relative",
               padding: "0 32px",
               borderRight: i < STATS.length - 1
-                ? "1px solid rgba(94,234,212,0.08)"
+                ? "1px solid var(--color-border)"
                 : "none",
             }}
           >
@@ -396,9 +396,9 @@ export const CtaSection: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="cta-email-input"
-              style={{ padding: "14px 20px", borderRadius: 14, border: "1px solid rgba(94,234,212,0.15)", background: "rgba(15,23,42,0.8)", color: "var(--color-text)", fontSize: 15, fontFamily: "var(--font-body)", width: 300, outline: "none", transition: "border-color 0.2s" }}
+              style={{ padding: "14px 20px", borderRadius: 14, border: "1px solid var(--color-border)", background: "var(--color-card)", color: "var(--color-text)", fontSize: 15, fontFamily: "var(--font-body)", width: 300, outline: "none", transition: "border-color 0.2s" }}
               onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(13,148,136,0.5)")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(94,234,212,0.15)")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "var(--color-border)")}
             />
             <button
               onClick={() => email && setSubmitted(true)}
@@ -420,9 +420,9 @@ export const CtaSection: React.FC = () => {
           {/* App Store — opens Coming Soon modal */}
           <button
             onClick={() => setModalOpen(true)}
-            style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 24px", borderRadius: 12, background: "var(--color-elevated)", border: "1px solid rgba(94,234,212,0.1)", cursor: "pointer", transition: "border-color 0.2s, transform 0.2s", fontFamily: "var(--font-body)" }}
+            style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 24px", borderRadius: 12, background: "var(--color-elevated)", border: "1px solid var(--color-border)", cursor: "pointer", transition: "border-color 0.2s, transform 0.2s", fontFamily: "var(--font-body)" }}
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(94,234,212,0.3)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(94,234,212,0.1)"; e.currentTarget.style.transform = "translateY(0)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--color-border)"; e.currentTarget.style.transform = "translateY(0)"; }}
           >
             <span style={{ fontSize: 22 }}>🍎</span>
             <div style={{ textAlign: "left" }}>
@@ -436,9 +436,9 @@ export const CtaSection: React.FC = () => {
             href="https://play.google.com/store/apps/details?id=com.social.winwhen&pcampaignid=web_share"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 24px", borderRadius: 12, background: "var(--color-elevated)", border: "1px solid rgba(94,234,212,0.1)", cursor: "pointer", transition: "border-color 0.2s, transform 0.2s", textDecoration: "none" }}
+            style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 24px", borderRadius: 12, background: "var(--color-elevated)", border: "1px solid var(--color-border)", cursor: "pointer", transition: "border-color 0.2s, transform 0.2s", textDecoration: "none" }}
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(94,234,212,0.3)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(94,234,212,0.1)"; e.currentTarget.style.transform = "translateY(0)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--color-border)"; e.currentTarget.style.transform = "translateY(0)"; }}
           >
             <span style={{ fontSize: 22 }}>🤖</span>
             <div style={{ textAlign: "left" }}>

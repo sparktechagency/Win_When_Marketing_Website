@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { NAV_LINKS, SITE_NAME } from "../../data/constants";
+import { useTheme } from "../../hooks";
 
 export const Navbar: React.FC = () => {
+  const [theme, toggleTheme] = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -60,16 +62,16 @@ export const Navbar: React.FC = () => {
           right: 0,
           zIndex: 100,
           padding: scrolled ? "10px 32px" : "20px 32px",
-          background: scrolled ? "rgba(2, 6, 23, 0.92)" : "transparent",
+          background: scrolled ? "var(--color-nav-scrolled)" : "transparent",
           backdropFilter: scrolled ? "blur(24px) saturate(180%)" : "none",
           borderBottom: scrolled
-            ? "1px solid rgba(94,234,212,0.08)"
+            ? "1px solid var(--color-border)"
             : "1px solid transparent",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           transition: "padding 0.35s ease, background 0.35s ease, border-color 0.35s ease",
-          boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.5)" : "none",
+          boxShadow: scrolled ? "var(--color-nav-shadow)" : "none",
         }}
       >
         {/* ── Logo ── */}
@@ -117,7 +119,7 @@ export const Navbar: React.FC = () => {
               fontFamily: "var(--font-display)",
               fontSize: "1.2rem",
               fontWeight: 700,
-              background: "linear-gradient(135deg, #e2e8f0 30%, var(--color-accent-light) 100%)",
+              background: "linear-gradient(135deg, var(--color-logo-text-from) 30%, var(--color-accent-light) 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -132,7 +134,7 @@ export const Navbar: React.FC = () => {
               fontWeight: 700,
               color: "var(--color-accent-light)",
               background: "rgba(94,234,212,0.08)",
-              border: "1px solid rgba(94,234,212,0.22)",
+              border: "1px solid var(--color-border-hover)",
               borderRadius: 6,
               padding: "2px 6px",
               letterSpacing: "1px",
@@ -153,8 +155,8 @@ export const Navbar: React.FC = () => {
             position: "absolute",
             left: "50%",
             transform: "translateX(-50%)",
-            background: "rgba(15,23,42,0.5)",
-            border: "1px solid rgba(94,234,212,0.08)",
+            background: "var(--color-nav-pill)",
+            border: "1px solid var(--color-border)",
             borderRadius: 100,
             padding: "5px",
             backdropFilter: "blur(12px)",
@@ -210,11 +212,55 @@ export const Navbar: React.FC = () => {
           })}
         </div>
 
-        {/* ── Desktop Right: Sign in + CTA ── */}
+        {/* ── Desktop Right: Theme toggle + CTA ── */}
         <div
           className="hidden md:flex"
           style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}
         >
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            style={{
+              width: 38, height: 38,
+              borderRadius: 10,
+              border: "1px solid var(--color-border)",
+              background: "var(--color-input-bg)",
+              color: "var(--color-text-secondary)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              cursor: "pointer",
+              transition: "background 0.2s, border-color 0.2s, color 0.2s",
+              flexShrink: 0,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(94,234,212,0.08)";
+              e.currentTarget.style.borderColor = "rgba(94,234,212,0.25)";
+              e.currentTarget.style.color = "var(--color-accent-light)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "var(--color-input-bg)";
+              e.currentTarget.style.borderColor = "var(--color-border)";
+              e.currentTarget.style.color = "var(--color-text-secondary)";
+            }}
+          >
+            {theme === "dark" ? (
+              /* Sun icon */
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            ) : (
+              /* Moon icon */
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            )}
+          </button>
+
           <a
             href="#download"
             className="btn-glow"
@@ -249,8 +295,8 @@ export const Navbar: React.FC = () => {
           className="md:hidden"
           aria-label="Toggle menu"
           style={{
-            background: menuOpen ? "rgba(94,234,212,0.1)" : "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(94,234,212,0.15)",
+            background: menuOpen ? "rgba(94,234,212,0.1)" : "var(--color-input-bg)",
+            border: "1px solid var(--color-border)",
             borderRadius: 10,
             width: 42,
             height: 42,
@@ -298,7 +344,7 @@ export const Navbar: React.FC = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: "rgba(2,6,23,0.98)",
+          background: "var(--color-mobile-menu)",
           backdropFilter: "blur(24px)",
           zIndex: 98,
           display: "flex",
@@ -338,7 +384,7 @@ export const Navbar: React.FC = () => {
                 fontWeight: 700,
                 fontFamily: "var(--font-display)",
                 padding: "16px 0",
-                borderBottom: "1px solid rgba(94,234,212,0.06)",
+                borderBottom: "1px solid var(--color-border)",
                 letterSpacing: "-0.5px",
                 transition: "color 0.2s, opacity 0.4s, transform 0.4s",
                 opacity: menuOpen ? 1 : 0,
@@ -385,6 +431,40 @@ export const Navbar: React.FC = () => {
           >
             Get the App — Free
           </a>
+
+          {/* Mobile theme toggle */}
+          <button
+            onClick={toggleTheme}
+            style={{
+              display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
+              padding: "14px 24px", borderRadius: 16,
+              border: "1px solid var(--color-border)",
+              background: "var(--color-input-bg)",
+              color: "var(--color-text-secondary)",
+              fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 15,
+              cursor: "pointer",
+            }}
+          >
+            {theme === "dark" ? (
+              <>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5"/>
+                  <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                Switch to Light Mode
+              </>
+            ) : (
+              <>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                Switch to Dark Mode
+              </>
+            )}
+          </button>
         </div>
       </div>
     </>
