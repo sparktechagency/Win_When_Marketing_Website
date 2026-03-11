@@ -26,6 +26,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: none !important;
 }
 
 html {
@@ -167,6 +168,37 @@ a {
   .animate-float-2,
   .animate-float-3 {
     animation: none !important;
+  }
+}
+
+/* ─── Hero Two-Col ─── */
+@media (max-width: 900px) {
+  .hero-two-col {
+    flex-direction: column !important;
+    gap: 48px !important;
+  }
+  .hero-left {
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+    text-align: center !important;
+    align-items: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .hero-left p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .hero-right {
+    flex: 1 1 100% !important;
+    padding-left: 0 !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+  }
+}
+@media (max-width: 560px) {
+  .hero-right > div:nth-child(3) {
+    display: none;
   }
 }
 

@@ -9,6 +9,7 @@ import {
   AboutSection,
   CtaSection,
 } from "./components/sections";
+import { AnimatedCursor } from "./components/ui";
 
 const App: React.FC = () => {
   return (
@@ -19,8 +20,11 @@ const App: React.FC = () => {
         color: "var(--color-text)",
         fontFamily: "var(--font-body)",
         overflowX: "hidden",
+        cursor: "none",
       }}
     >
+      <AnimatedCursor />
+
       {/* Grain texture overlay */}
       <div className="grain-overlay" />
 
