@@ -191,7 +191,7 @@ export const HeroSection: React.FC = () => (
             WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
             filter: "drop-shadow(0 0 28px rgba(94,234,212,0.25))",
           }}>
-            Matter Most
+            Matter
           </span>
         </h1>
 
